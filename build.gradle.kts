@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
-
+    id("com.google.devtools.ksp") version "2.3.5"
 }
 
 group = "com.chaosnote"
@@ -31,6 +31,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.6.0")
 
+    implementation("com.google.auto.service:auto-service-annotations:1.1.1")
+    ksp("dev.zacsweers.autoservice:auto-service-ksp:1.2.0")
+
     testImplementation(kotlin("test"))
 }
 
@@ -55,7 +58,7 @@ kotlin {
 
 val copyPluginJar by tasks.registering(Copy::class) {
     dependsOn("jar") // спершу збираємо JAR
-    val pluginOutputDir = file("C:\\Users\\Anastasiia\\workspaces\\chaosnote\\chaosnote-desktop\\composeApp\\plugins") // зміни на свою папку
+    val pluginOutputDir = file("C:\\Users\\Anastasiia\\AppData\\Roaming\\Chaosnote\\plugins")
     from(tasks.named("jar")) {
         // джарка, яку згенерує task 'jar'
     }
