@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.chaosnoteapp:chaosnote-api:v0.1.0")
+    implementation("com.github.chaosnoteapp:chaosnote-api:1.0.0")
     implementation(compose.desktop.currentOs)
     implementation(compose.runtime)
     implementation(compose.foundation)
@@ -31,8 +31,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.6.0")
 
-    implementation("com.google.auto.service:auto-service-annotations:1.1.1")
-    ksp("dev.zacsweers.autoservice:auto-service-ksp:1.2.0")
+    // PF4J runtime dependency so this plugin can be discovered by the host
+    implementation("org.pf4j:pf4j:3.15.0")
 
     testImplementation(kotlin("test"))
 }

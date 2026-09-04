@@ -17,4 +17,12 @@ class FakeBlockHandle(override val payload: String) : BlockHandle {
     override val id: String = "plugin_management"
     override fun update(value: String) {
     }
+
+    override fun saveState(state: Any) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getState(): Any? {
+        TODO("Not yet implemented")
+    }
 }

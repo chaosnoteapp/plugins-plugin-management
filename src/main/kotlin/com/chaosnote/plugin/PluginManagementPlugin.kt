@@ -16,16 +16,15 @@ import com.chaosnote.api.block.BlockPlugin
 import com.chaosnote.plugin.ui.PluginsListTab
 import com.chaosnote.plugin.ui.RepositoriesTab
 import com.chaosnote.plugin.viewmodel.PluginManagementViewModel
-import com.google.auto.service.AutoService
+import org.pf4j.Extension
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-@AutoService(BlockPlugin::class)
+@Extension
 class PluginManagementPlugin : BlockPlugin {
 
     override val type = "com.chaosnote.plugin.PluginManagementPlugin"
     override val shortName = "Plugin Manager"
 
-    @Preview
     @Composable
     override fun Render(blockHandle: BlockHandle) {
         PluginManagementUI()
